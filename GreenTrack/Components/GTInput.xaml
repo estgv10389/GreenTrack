@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    x:Class="GreenTrack.Components.GTInput"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:GreenTrack.Components"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <Style x:Key="InvalidEntryStyle" TargetType="Entry">
+                <Setter Property="BackgroundColor" Value="LightPink" />
+                <Setter Property="TextColor" Value="Red" />
+            </Style>
+        </ResourceDictionary>
+    </ContentView.Resources>
+
+    <HorizontalStackLayout
+        HorizontalOptions="Fill"
+        Spacing="10"
+        VerticalOptions="Fill">
+        <Entry
+            AutomationId="{Binding GTAutomationId, Source={RelativeSource AncestorType={x:Type local:GTInput}}}"
+            HorizontalOptions="FillAndExpand"
+            IsPassword="{Binding IsPassword, Source={RelativeSource AncestorType={x:Type local:GTInput}}}"
+            Placeholder="{Binding Placeholder, Source={RelativeSource AncestorType={x:Type local:GTInput}}}"
+            Text="{Binding Text, Mode=TwoWay, Source={RelativeSource AncestorType={x:Type local:GTInput}}}"
+            VerticalOptions="CenterAndExpand" />
+
+        <Label
+            FontSize="12"
+            IsVisible="{Binding HasValidationError, Source={RelativeSource AncestorType={x:Type local:GTInput}}}"
+            Text="{Binding ValidationMessage, Source={RelativeSource AncestorType={x:Type local:GTInput}}}"
+            TextColor="Red" />
+
+    </HorizontalStackLayout>
+</ContentView>

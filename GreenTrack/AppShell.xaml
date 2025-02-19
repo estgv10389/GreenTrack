@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="GreenTrack.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:assets="clr-namespace:GreenTrack.Views.Assets"
+    xmlns:local="clr-namespace:GreenTrack"
+    xmlns:views="clr-namespace:GreenTrack.Views"
+    Title="GreenTrack"
+    Shell.FlyoutBehavior="Flyout">
+
+    <FlyoutItem Title="Home" Icon="home_icon.png">
+        <ShellContent ContentTemplate="{DataTemplate views:HomePage}" />
+    </FlyoutItem>
+    <FlyoutItem Title="Assets" Icon="map_icon.png">
+        <ShellContent ContentTemplate="{DataTemplate assets:Assets}" />
+    </FlyoutItem>
+</Shell>

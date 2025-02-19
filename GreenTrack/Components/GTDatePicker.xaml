@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    x:Class="GreenTrack.Components.GTDatePicker"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:GreenTrack.Components">
+    <ContentView.Content>
+        <DatePicker
+            AutomationId="{Binding GTAutomationId, Source={RelativeSource AncestorType={x:Type local:GTDatePicker}}}"
+            Date="{Binding SelectedDate}"
+            Format="D"
+            MaximumDate="2030-12-31"
+            MinimumDate="2000-01-01" />
+    </ContentView.Content>
+</ContentView>

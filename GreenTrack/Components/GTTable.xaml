@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    x:Class="GreenTrack.Components.GTTable"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:dg="clr-namespace:Maui.DataGrid;assembly=Maui.DataGrid">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Button Command="{Binding ClearCommand}" Text="Clear Data" />
+
+        <dg:DataGrid
+            Grid.Row="1"
+            HeaderBackground="Red"
+            HeaderHeight="50"
+            IsRefreshing="{Binding IsRefreshing}"
+            ItemsSource="{Binding ItemsSource}"
+            PullToRefreshCommand="{Binding RefreshCommand}"
+            RowHeight="70"
+            SelectedItem="{Binding SelectedItem}"
+            SelectionMode="Single">
+
+            <dg:DataGrid.Columns>
+                <dg:DataGridColumn
+                    Title="Image"
+                    Width="70"
+                    PropertyName="Image"
+                    SortingEnabled="True">
+                    <dg:DataGridColumn.CellTemplate>
+                        <DataTemplate>
+                            <Image Aspect="AspectFill" Source="{Binding Image}" />
+                        </DataTemplate>
+                    </dg:DataGridColumn.CellTemplate>
+                </dg:DataGridColumn>
+
+                <dg:DataGridColumn
+                    Title="Name"
+                    Width="100"
+                    PropertyName="Name"
+                    SortingEnabled="True" />
+
+                <!--  Add more columns as needed for your dataset  -->
+
+            </dg:DataGrid.Columns>
+
+            <!--  Defining row color settings  -->
+            <dg:DataGrid.RowsBackgroundColorPalette>
+                <dg:PaletteCollection>
+                    <Color>#F2F2F2</Color>
+                    <Color>#FFFFFF</Color>
+                </dg:PaletteCollection>
+            </dg:DataGrid.RowsBackgroundColorPalette>
+        </dg:DataGrid>
+    </Grid>
+</ContentView>

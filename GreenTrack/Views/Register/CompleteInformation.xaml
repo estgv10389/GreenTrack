@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="GreenTrack.Views.Register.CompleteInformation"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:components="clr-namespace:GreenTrack.Components"
+    Title=""
+    BackgroundColor="White">
+
+    <!--  Conteúdo Principal  -->
+    <Grid
+        Padding="20"
+        AutomationId="GTCompleteInformation"
+        RowSpacing="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <!--  Título  -->
+            <RowDefinition Height="Auto" />
+            <!--  Target Label  -->
+            <RowDefinition Height="Auto" />
+            <!--  Target Input  -->
+            <RowDefinition Height="Auto" />
+            <!--  Deadline Label  -->
+            <RowDefinition Height="Auto" />
+            <!--  Deadline Picker  -->
+            <RowDefinition Height="Auto" />
+            <!--  Description Label  -->
+            <RowDefinition Height="Auto" />
+            <!--  Description Input  -->
+            <RowDefinition Height="*" />
+            <!--  Espaço Vazio  -->
+            <RowDefinition Height="Auto" />
+            <!--  Botão  -->
+        </Grid.RowDefinitions>
+
+        <!--  Título  -->
+        <Label
+            Grid.Row="0"
+            Margin="0,10,0,20"
+            FontAttributes="Bold"
+            FontSize="24"
+            HorizontalOptions="Start"
+            Text="Complete Your Information"
+            TextColor="#4F3F9B" />
+
+        <!--  Target Emission  -->
+        <Label
+            Grid.Row="1"
+            FontAttributes="Bold"
+            Text="Target Emission"
+            TextColor="Black" />
+        <components:GTInput
+            Grid.Row="2"
+            Margin="0,0,0,10"
+            GTAutomationId="GTTargetEmission"
+            HasValidationError="{Binding TargetHasValidationError}"
+            Placeholder="Enter Target Emission"
+            Text="{Binding TargetEmission}"
+            ValidationMessage="{Binding TargetValidationMessage}" />
+
+        <!--  Deadline  -->
+        <Label
+            Grid.Row="3"
+            FontAttributes="Bold"
+            Text="Deadline"
+            TextColor="Black" />
+        <components:GTDatePicker
+            Grid.Row="4"
+            Margin="0,0,0,10"
+            BackgroundColor="#F5F5F5"
+            GTAutomationId="GTDeadline"
+            SelectedDate="{Binding Deadline}" />
+
+        <!--  Description  -->
+        <Label
+            Grid.Row="5"
+            Margin="0,10,0,0"
+            FontAttributes="Bold"
+            Text="Description"
+            TextColor="Black" />
+        <components:GTEditor
+            Grid.Row="6"
+            Margin="0,0,0,10"
+            GTAutomationId="GTDescription"
+            Placeholder="Enter Description"
+            Text="{Binding Description}" />
+
+        <!--  Espaço para empurrar o botão para baixo  -->
+        <BoxView
+            Grid.Row="7"
+            HeightRequest="1"
+            IsEnabled="False"
+            IsVisible="False" />
+
+        <!--  Botão  -->
+        <components:GTButton
+            Grid.Row="8"
+            Margin="0,10,0,20"
+            BgColor="#4F3F9B"
+            ExternalCommand="{Binding CompleteInformationCommand}"
+            GTAutomationId="GTConfirm"
+            HeightRequest="50"
+            Text="Submit" />
+    </Grid>
+</ContentPage>
